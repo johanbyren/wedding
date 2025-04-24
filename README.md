@@ -14,6 +14,22 @@ A modern, production-ready template for building full-stack React applications u
 - 🎉 TailwindCSS for styling
 - 📖 [React Router docs](https://reactrouter.com/)
 
+## Available Routes
+
+The application includes the following routes:
+
+- `/` - Home page
+- `/login` - Login page
+- `/register` - Registration page
+- `/wedding/:id` - Wedding details page (e.g., `/wedding/123`)
+- `/wedding/:id/contribute/:giftId` - Gift contribution page (e.g., `/wedding/123/contribute/1`)
+- `/wedding/:id/thank-you` - Thank you page after contribution (e.g., `/wedding/123/thank-you`)
+
+Example URLs for testing:
+- Wedding page: `http://localhost:5173/wedding/123`
+- Contribute to a gift: `http://localhost:5173/wedding/123/contribute/1`
+- Thank you page: `http://localhost:5173/wedding/123/thank-you`
+
 ## Getting Started
 
 ### Installation

@@ -19,9 +19,9 @@ export default function Home() {
           </Link>
         </nav>
       </header>
-      <main className="flex-1 flex flex-col">
-        <section className="flex-1 flex items-center w-full bg-gradient-to-b from-white to-pink-50">
-          <div className="container px-4 md:px-6 mx-auto">
+      <main className="flex-1">
+        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-b from-white to-pink-50">
+          <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
@@ -43,7 +43,7 @@ export default function Home() {
           </div>
         </section>
         <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
-          <div className="container px-4 md:px-6 mx-auto">
+          <div className="container px-4 md:px-6">
             <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
               <div className="flex flex-col items-center space-y-2 border p-6 rounded-lg shadow-sm">
                 <div className="p-3 rounded-full bg-pink-100">
