@@ -24,7 +24,7 @@ function Calendar({
         caption_label: "text-sm font-medium",
         nav: "space-x-1 flex items-center",
         nav_button: cn(
-          buttonVariants({ variant: "outline" }),
+          buttonVariants.outline,
           "h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100"
         ),
         nav_button_previous: "absolute left-1",
@@ -41,8 +41,10 @@ function Calendar({
             : "[&:has([aria-selected])]:rounded-md"
         ),
         day: cn(
-          buttonVariants({ variant: "ghost" }),
-          "h-8 w-8 p-0 font-normal aria-selected:opacity-100"
+          buttonVariants.ghost,
+          "h-9 w-9 p-0 font-normal aria-selected:opacity-100",
+          "hover:bg-accent hover:text-accent-foreground",
+          "cursor-pointer"
         ),
         day_range_start: "day-range-start",
         day_range_end: "day-range-end",
