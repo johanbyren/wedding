@@ -9,8 +9,7 @@ export default [
       route("", "dashboard/wedding-details.tsx"),
       route("gifts", "dashboard/gifts/page.tsx"),
       route("create", "dashboard/create/page.tsx"),
-      // Commenting out routes for files that don't exist yet
-      // route("settings", "dashboard/settings.tsx"),
+      route("settings", "dashboard/settings/page.tsx"),
     ]),
   ]),
   route("/wedding/:id", "routes/wedding/WeddingPage.tsx"),
