@@ -4,15 +4,15 @@ import type React from "react"
 
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { Button } from "~/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "~/components/ui/card"
-import { Input } from "~/components/ui/input"
-import { Label } from "~/components/ui/label"
-import { Textarea } from "~/components/ui/textarea"
+import { Button } from "../../components/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../../components/ui/card"
+import { Input } from "../../components/ui/input"
+import { Label } from "../../components/ui/label"
+import { Textarea } from "../../components/ui/textarea"
 import { HeartIcon, ArrowLeft, ImagePlus } from "lucide-react"
-import { DatePicker } from "~/components/date-picker"
-import { ImageUploader } from "~/components/image-uploader"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs"
+import { DatePicker } from "../../components/date-picker"
+import { ImageUploader } from "../../components/image-uploader"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "../../components/ui/tabs"
 
 export default function CreateWeddingPage() {
   const navigate = useNavigate()
@@ -236,12 +236,10 @@ export default function CreateWeddingPage() {
                           </div>
                         ))}
                         <div className="aspect-square flex items-center justify-center border rounded-lg border-dashed">
-                          <ImageUploader onImageSelected={handleAdditionalPhotoAdd}>
-                            <div className="flex flex-col items-center">
-                              <ImagePlus className="h-8 w-8 mb-2 text-gray-400" />
-                              <span>Add Photo</span>
-                            </div>
-                          </ImageUploader>
+                          <ImageUploader 
+                            onImageSelected={handleAdditionalPhotoAdd}
+                            className="w-full h-full flex items-center justify-center"
+                          />
                         </div>
                       </div>
                     </div>

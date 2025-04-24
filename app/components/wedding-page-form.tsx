@@ -8,13 +8,26 @@ import { Label } from "~/components/ui/label"
 import { Textarea } from "~/components/ui/textarea"
 import { DatePicker } from "~/components/date-picker"
 
-export function WeddingPageForm() {
+interface WeddingDetails {
+  id: string;
+  title: string;
+  description: string;
+  date: string;
+  location: string;
+  imageUrl: string;
+}
+
+interface WeddingPageFormProps {
+  wedding: WeddingDetails;
+}
+
+export function WeddingPageForm({ wedding }: WeddingPageFormProps) {
   const [weddingDetails, setWeddingDetails] = useState({
-    title: "",
-    date: new Date(),
-    location: "",
-    story: "",
-    coverPhotoUrl: "",
+    title: wedding.title,
+    date: new Date(wedding.date),
+    location: wedding.location,
+    story: wedding.description,
+    coverPhotoUrl: wedding.imageUrl,
   })
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -49,18 +62,17 @@ export function WeddingPageForm() {
         <Input
           id="location"
           name="location"
-          placeholder="Venue name and address"
+          placeholder="123 Wedding Lane, City, Country"
           value={weddingDetails.location}
           onChange={handleChange}
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="story">Your Love Story</Label>
+        <Label htmlFor="story">Your Story</Label>
         <Textarea
           id="story"
           name="story"
-          placeholder="Share your journey together..."
-          className="min-h-[100px]"
+          placeholder="Share your love story..."
           value={weddingDetails.story}
           onChange={handleChange}
         />

@@ -5,11 +5,13 @@ export default [
   route("/login", "routes/login.tsx"),
   route("/register", "routes/register.tsx"),
   route("/dashboard", "components/protected-route.tsx", [
-    route("", "dashboard/page.tsx"),
-    // Commenting out routes for files that don't exist yet
-    // route("gifts", "dashboard/gifts.tsx"),
-    // route("create", "dashboard/create.tsx"),
-    // route("settings", "dashboard/settings.tsx"),
+    route("", "dashboard/page.tsx", [
+      route("", "dashboard/wedding-details.tsx"),
+      route("gifts", "dashboard/gifts/page.tsx"),
+      route("create", "dashboard/create/page.tsx"),
+      // Commenting out routes for files that don't exist yet
+      // route("settings", "dashboard/settings.tsx"),
+    ]),
   ]),
   route("/wedding/:id", "routes/wedding/WeddingPage.tsx"),
   route("/wedding/:id/contribute/:giftId", "routes/wedding/Contribute.tsx"),

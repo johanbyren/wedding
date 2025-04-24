@@ -8,6 +8,7 @@ import {
 } from "react-router";
 import { AuthProvider } from "./context/auth";
 import { DevToolbar } from "./components/dev-toolbar";
+import { StrictMode } from "react";
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -45,38 +46,39 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <AuthProvider>
-      <Outlet />
-      <DevToolbar />
-    </AuthProvider>
+    <StrictMode>
+      <AuthProvider>
+        <div className="min-h-screen">
+          <Outlet />
+        </div>
+        <DevToolbar />
+      </AuthProvider>
+    </StrictMode>
   );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
-  let message = "Oops!";
-  let details = "An unexpected error occurred.";
-  let stack: string | undefined;
-
   if (isRouteErrorResponse(error)) {
-    message = error.status === 404 ? "404" : "Error";
-    details =
-      error.status === 404
-        ? "The requested page could not be found."
-        : error.statusText || details;
-  } else if (import.meta.env.DEV && error && error instanceof Error) {
-    details = error.message;
-    stack = error.stack;
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold mb-4">
+            {error.status} {error.statusText}
+          </h1>
+          <p className="text-gray-500">{error.data}</p>
+        </div>
+      </div>
+    );
   }
 
+  const errorMessage = error instanceof Error ? error.message : "An unexpected error occurred";
+
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
-      {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
-          <code>{stack}</code>
-        </pre>
-      )}
-    </main>
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold mb-4">Something went wrong</h1>
+        <p className="text-gray-500">{errorMessage}</p>
+      </div>
+    </div>
   );
 }
