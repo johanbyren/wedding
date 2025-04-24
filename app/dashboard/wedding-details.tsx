@@ -13,9 +13,9 @@ export default function WeddingDetails() {
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold">Dashboard</h1>
         <Button asChild className="bg-pink-500 hover:bg-pink-600">
-          <Link to="/dashboard/create">
+          <Link to="/dashboard/create" className="flex items-center">
             <PlusCircle className="h-4 w-4 mr-2" />
-            Create New Wedding Page
+            <span>Create New Wedding Page</span>
           </Link>
         </Button>
       </div>
@@ -55,7 +55,10 @@ export default function WeddingDetails() {
             </CardContent>
             <CardFooter>
               <Button asChild>
-                <Link to="/dashboard/create">Create New Wedding Page</Link>
+                <Link to="/dashboard/create" className="flex items-center">
+                  <PlusCircle className="h-4 w-4 mr-2" />
+                  <span>Create New Wedding Page</span>
+                </Link>
               </Button>
             </CardFooter>
           </Card>
